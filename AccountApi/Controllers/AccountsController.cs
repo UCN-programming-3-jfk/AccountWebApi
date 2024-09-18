@@ -7,7 +7,7 @@ namespace AccountApi.Controllers;
 public class AccountsController : ControllerBase
 {
     #region Properties
-    const string baseURI = "api/v1/accounts";
+    const string baseURI = "api/v1/[controller]";
     private IAccountDAO _accountDAO { get; set; }
     #endregion
 
@@ -22,6 +22,7 @@ public class AccountsController : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<Account>> GetAll()
     {
+        //returns 200 + account JSON as body
         return Ok(_accountDAO.GetAll());
     }
 
@@ -41,7 +42,9 @@ public class AccountsController : ControllerBase
     public ActionResult<Account> AddAccount(Account account)
     {
         account.Id = _accountDAO.Insert(account);
-        return Created($"{baseURI}/{account.Id}", account);
+
+        //returns 201 + account JSON as body
+        return Created($"{baseURI}/{account.Id}", account); 
     }
 
     [HttpDelete]
@@ -51,7 +54,7 @@ public class AccountsController : ControllerBase
         if (!_accountDAO.Delete(id))
         {
             return NotFound();  //returns 404
-        }
+        }   
         return Ok();    //returns 200
     }
 
@@ -60,9 +63,9 @@ public class AccountsController : ControllerBase
     {
         if (!_accountDAO.Update(account))
         {
-            return NotFound();
+            return NotFound();  //returns 404
         }
-        return Ok();
+        return Ok();    //returns 200
     }
     #endregion
 }
