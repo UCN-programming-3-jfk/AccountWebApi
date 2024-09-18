@@ -7,7 +7,7 @@ internal class Program
     public static void Main()
     {
         var localURI = "https://localhost:7216/api/v1/accounts";
-        AccountApiConsumer consumer = new AccountApiConsumer(localURI);
+        IAccountApiConsumer consumer = new AccountApiConsumer(localURI);
 
         Account account1 = new Account() { Name = "My first savings account", Balance = 30 };
         Account account2 = new Account() { Name = "My second savings account", Balance = 50 };
