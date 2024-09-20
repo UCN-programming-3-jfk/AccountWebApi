@@ -2,13 +2,14 @@ using AccountApi.DAL;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AccountApi.Controllers;
+
 [ApiController]
 [Route(baseURI)]
 public class AccountsController : ControllerBase
 {
     #region Properties
     const string baseURI = "api/v1/[controller]";
-    private IAccountDAO _accountDAO { get; set; }
+    private IAccountDAO _accountDAO;
     #endregion
 
     #region Constructor
