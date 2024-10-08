@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace AccountApiConsumerApp.DAL
+namespace AccountApiConsumerApp.DAL;
+
+public interface IAccountApiConsumer
 {
-    public interface IAccountApiConsumer
-    {
-        string ServiceUri { get; }
-        Account AddAccount(Account accountToAdd);
-        void DeleteAccount(int idOfAccountToDelete);
-        IEnumerable<Account> GetAllAccounts();
-    }
+    Account AddAccount(Account accountToAdd);
+    void DeleteAccount(int idOfAccountToDelete);
+    IEnumerable<Account> GetAllAccounts();
 }

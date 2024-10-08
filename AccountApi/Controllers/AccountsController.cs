@@ -4,19 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 namespace AccountApi.Controllers;
 
 [ApiController]
-[Route(baseURI)]
+[Route("[controller]")]
 public class AccountsController : ControllerBase
 {
-    #region Properties
-    const string baseURI = "api/v1/[controller]";
+    #region Variables and constructor
     private IAccountDAO _accountDAO;
-    #endregion
-
-    #region Constructor
     public AccountsController(IAccountDAO dataAccessLayer)
     {
         _accountDAO = dataAccessLayer;
-    }
+    } 
     #endregion
 
     #region RESTful CRUD methods
