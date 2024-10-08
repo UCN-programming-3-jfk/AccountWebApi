@@ -4,10 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace AccountApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route(baseURI)]
 public class AccountsController : ControllerBase
 {
     #region Variables and constructor
+    const string baseURI = "api/v1/[controller]";
     private IAccountDAO _accountDAO;
     public AccountsController(IAccountDAO dataAccessLayer)
     {

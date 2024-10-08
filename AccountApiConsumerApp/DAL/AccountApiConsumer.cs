@@ -48,7 +48,7 @@ public class AccountApiConsumer : IAccountApiConsumer
     public void DeleteAccount(int idOfAccountToDelete)
     {
         //get a response
-        var response = _restClient.ExecuteDelete<bool>(new RestRequest("{ idOfAccountToDelete }"));
+        var response = _restClient.ExecuteDelete<bool>(new RestRequest($"{idOfAccountToDelete}"));
 
         //give an error if the response is not successful
         if (!response.IsSuccessful)
