@@ -53,8 +53,8 @@ public class AccountApiConsumer : IAccountApiConsumer
         //give an error if the response is not successful
         if (!response.IsSuccessful)
         {
-            throw new Exception($"Error deleting account with id {idOfAccountToDelete}. Message was {response.StatusDescription}");
+            throw new Exception($"Error deleting account with id {idOfAccountToDelete}. " 
+               + "Message was {response.StatusDescription}");
         }
-
     }
 }
